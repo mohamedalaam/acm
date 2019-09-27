@@ -22,22 +22,28 @@ function formate_data(com)
   { 
       let name = i.firstName+" "+i.middleName+" "+i.lastName;
       let date = new Date(i.joinDate); 
-      let x=date.toString();
-      let d=x.split(" ",4)
-         if (d[2].charAt(d[2].length-1)=='2') 
+      let dat;  
+     let d; 
+      if (date.getDate()%10==2) 
          {
-             d[2]+="nd";
+              dat =date.getDate().toString()+"nd";
          }
-         else if (d[2].charAt(d[2].length-1)=='3') 
+         else if (date.getDate()%10==3) 
          {
-             d[2]+="thrd";
+          dat =date.getDate().toString()+"thrd";
          }
          else 
          {
-            d[2]+="th";
+          dat =date.getDate().toString()+"th";
          }
-        x=d[0]+" "+d[1]+" "+d[2]+" "+d[3]; 
-      newcom.push({full:name,join:x,com:i.committee})
+
+         let day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+         let month=['January','February','March','April','May','June','July','August','September','October','November','December'];
+       
+         d=day[date.getDay()]+", "+month[date.getMonth()]+" "+dat+" "+date.getFullYear().toString();
+        
+       
+      newcom.push({full:name,join:d,com:i.committee})
   }
   
   newcom.sort((a, b) => (a.full > b.full) ? 1 : -1)
