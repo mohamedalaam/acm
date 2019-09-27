@@ -150,17 +150,6 @@ for(let j in media  )
 
 
 
-// how to import json file in typescript 
-
-// const jsonfile = require('jsonfile')
-// const file = 'db.json'
- 
-// // console.dir(jsonfile.readFileSync(file))
-
-// temp:[]; 
-// this.temp = jsonfile.readFileSync(file); 
-
-// console.dir(this.temp[0])
 
 
 
